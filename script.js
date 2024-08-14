@@ -44,11 +44,11 @@ document.querySelectorAll('.invisible-square-acai, .invisible-square-combo').for
 });
 
 function openFullscreenImage(imageUrl) {
-    // Desativa o scroll da página
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden'; // Desativa o scroll da página
     
     // Cria um elemento de fundo para a imagem em tela cheia
     const overlay = document.createElement('div');
+    
     overlay.style.position = 'fixed';
     overlay.style.top = '0';
     overlay.style.left = '0';
@@ -72,7 +72,6 @@ function openFullscreenImage(imageUrl) {
     closeButton.textContent = 'X';
     closeButton.style.position = 'fixed';
     closeButton.style.top = '20px';
-    closeButton.style.right = '220px';
     closeButton.style.background = 'transparent';
     closeButton.style.border = 'none';
     closeButton.style.fontSize = '30px';
