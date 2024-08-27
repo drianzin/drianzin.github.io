@@ -306,6 +306,13 @@ body.light-mode .menuOptions {
     background-color: yellow;
 }
 
+#orange-theme-button {
+    height: 148px;
+    width: 100%;
+    cursor: pointer;
+    background-color: orange;
+}
+
 body.blue-theme {
     background-color: var(--background-blue-dark);
     color: var(--highlight-color-blue-dark);
