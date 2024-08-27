@@ -1,16 +1,27 @@
 :root {
-    --background-light: #f0f0f0;
+    --background-light: #fffcf2;
     --text-light: #333333;
+
     --background-dark: #121212;
     --text-dark: #f0f0f0;
+
     --primary-font: 'Montserrat', sans-serif;
     --secondary-font: 'Poppins', sans-serif;
+
     --icon-light: #ffe296;
-    --icon-dark: #9b59b6; 
-    --scrollbar-light-bg: #e0e0e0;
-    --scrollbar-dark-bg: #444444;
-    --scrollbar-thumb-light: #b0b0b0;
-    --scrollbar-thumb-dark: #666666;
+    --icon-dark: #9b59b6;
+    
+    --highlight-color-default-dark: #ffe296;
+    --secondary-text-dark: #ffeec2;
+
+    --highlight-color-default-light: #efcb71;
+    --secondary-text-light: #a29b8a;
+
+    --background-blue-dark: hsl(210, 23%, 9%);
+    --highlight-color-blue-dark: #5fc9f3;
+    --secondary-text-dark-blue: #ffffff;
+
+    --background-blue-light: #dce6f4;
 }
 
 body {
@@ -47,20 +58,20 @@ header.showing {
     position:fixed;
 }
 
-#toggle-theme {
+#menu-icon {
     position: absolute;
     right: 20px;
     top: 20px;
     background: none;
     border: none;
-    color: var(--icon-light);
+    color: var(--highlight-color-default-dark);
     cursor: pointer;
     font-size: 24px;
     outline: none;
     transition: color 0.3s ease;
 }
 
-#toggle-theme .material-icons {
+#menu-icon .material-icons {
     vertical-align: middle;
 }
 
@@ -69,19 +80,33 @@ h1, h2, h3 {
     font-family: var(--primary-font);
 }
 
+h3 {
+    color: var(--highlight-color-default-dark);
+}
+
+h3 a {
+    color: var(--highlight-color-default-dark);
+}
+
 p {
     font-family: var(--secondary-font);
     line-height: 1.6;
+    color: var(--secondary-text-dark);
+    margin: 2px;
+}
+
+header p {
+    color: var(--highlight-color-default-dark);
 }
 
 main {
     padding: 20px;
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 section {
-    margin-bottom: 60px;
+    margin-bottom: 5%;
 }
 
 #about {
@@ -91,19 +116,25 @@ section {
 .project {
     position: relative;
     background-color: #2c2c2c;
-    padding: 20px;
-    padding-left: 28px;
-    margin-bottom: 20px;
+    padding: 24px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.project-item img {
+    height: auto;
+    width: 100%;
 }
 
 .invisible-square-acai {
     position: absolute;
-    top: 12%;
-    left: 26%;
+    top: 13%;
+    left: 31%;
     width: 12%;
-    height: 35%;
+    height: 34%;
     cursor: pointer;
     z-index: 1;
     background-color: transparent;
@@ -111,18 +142,13 @@ section {
 
 .invisible-square-combo {
     position: absolute;
-    top: 52%;
-    left: 5%;
-    width: 12%;
-    height: 35%;
+    top: 45%;
+    left: 9%;
+    width: 13%;
+    height: 34%;
     cursor: pointer;
     z-index: 1;
     background-color: transparent;
-}
-
-.project img {
-    max-width: 40%;
-    height: auto;
 }
 
 img {
@@ -145,6 +171,14 @@ body.light-mode {
     color: var(--text-light);
 }
 
+body.light-mode p{
+    color:var(--secondary-text-light);
+}
+
+body.light-mode header p, #menu-icon, h3, h3 a, #menuTitle, #toggle-theme {
+    color: var(--highlight-color-default-light);
+}
+
 body.light-mode header, body.light-mode footer {
     background-color: rgba(255, 255, 255, 0.8);
     color: var(--text-light);
@@ -155,26 +189,14 @@ body.light-mode .project {
     background-color: #fff;
 }
 
-body.light-mode #toggle-theme {
-    color: var(--icon-dark);
-}
-
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
     background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-thumb-dark);
+    background-color: var(--secondary-text-dark);
     border-radius: 10px;
-}
-
-body.light-mode ::-webkit-scrollbar {
-    background-color: var(--scrollbar-light-bg);
-}
-
-body.light-mode ::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-thumb-light);
 }
 
 button {
@@ -184,27 +206,167 @@ button {
     right: 8%;
 }
 
+.menuBg {
+    position: fixed;
+    background-color: var(--background-dark);
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 1%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+body.light-mode .menuBg {
+    background-color: #fff;
+}
+
+#menuTitle {
+    color: var(--highlight-color-default-dark);
+    font-family: var(--secondary-font);
+    line-height: 1.6;
+    font-size: 2em;
+    margin-bottom: 48px;
+}
+
+body.light-mode #menuTitle {
+    color: var(--highlight-color-default-light);
+}
+
+.menuOptions {
+    font-family: var(--primary-font);
+    color: var(--secondary-text-dark);
+    margin-top: 52px;
+    margin-bottom: 50%;
+    font-size: 24px;
+}
+
+.menuOptions div {
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+body.light-mode .menuOptions {
+    color: var(--secondary-text-light);
+}
+
+.nightModeContainer {
+    display: flex;
+    gap: 60%;
+    align-items: center;
+    padding: 0%;
+}
+
+#toggle-theme {
+    background: none;
+    border: none;
+    color: var(--highlight-color-default-dark);
+    cursor: pointer;
+    text-align: right;
+    display: flex;
+    padding: 0%;
+    margin: 0%;
+}
+
+#toggle-theme .material-icons {
+    font-size: 48px;
+}
+
+.themeContainer {
+    display: flex;
+    justify-content: center;
+    gap: 52px;
+}
+
+.buttonsThemeContainer {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.buttonsThemeContainer button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    outline: none;
+}
+
+#blue-theme {
+    height: 148px;
+    width: 100%;
+    cursor: pointer;
+    background-color: blue;
+}
+
+#default-theme-button {
+    height: 148px;
+    width: 100%;
+    cursor: pointer;
+    background-color: yellow;
+}
+
+body.blue-theme {
+    background-color: var(--background-blue-dark);
+    color: var(--highlight-color-blue-dark);
+}
+
+body.blue-theme p{
+    color:var(--secondary-text-dark-blue);
+}
+
+body.blue-theme header p, body.blue-theme #menu-icon, body.blue-theme h3, body.blue-theme h3 a, body.blue-theme #menuTitle, body.blue-theme #toggle-theme {
+    color: var(--highlight-color-blue-dark);
+}
+
+body.blue-theme.light-mode {
+    background-color: var(--background-blue-light);
+}
+
+body.blue-theme.light-mode p{
+    color: var(--text-light);
+}
+
+body.blue-theme.light-mode header p {
+    color: var(--highlight-color-blue-dark);
+}
+
 @media (max-width: 1165px) {
     main {
         margin: 0;
         padding: 10px;
     }
 
+    .project {
+        display:block;
+    }
+    
+    .project p {
+        border-bottom: 2px solid #7A7A7A;
+        padding-bottom: 8px;
+    }
+
     .project img {
-        max-width: 100%;
+        width: 90%;
+    }
+
+    .project-item {
+        margin-bottom: 10%;
     }
 
     .invisible-square-acai {
-        top: 12%;
+        top: 8%;
         left: auto;
-        right: 8%;
-        width: 30%;
+        right: 14%;
+        width: 25%;
+        height: 18%;
     }
     
     .invisible-square-combo {
-        top: 52%;
-        left: 12%;
-        width: 30%;
+        top: 27%;
+        left: 15%;
+        width: 27%;
+        height: 18%;
     }
 
     img {
@@ -212,12 +374,12 @@ button {
         max-height: 99%;
     }
 
-    button {
-        color: transparent;
+    #menu-icon {
+        top: 15px;
     }
 
-    #toggle-theme {
-        top: 15px;
+    section {
+        margin-bottom: 15%;
     }
 }
 
